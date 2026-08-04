@@ -8,6 +8,7 @@ import { ChevronDown, Menu, X } from "lucide-react";
 import { SERVICES } from "@/lib/services";
 import { WHATSAPP_LABEL, WHATSAPP_URL } from "@/lib/whatsapp";
 import { WhatsAppIcon } from "@/components/WhatsAppIcon";
+import { SocialLinks } from "@/components/SocialLinks";
 
 export function Header() {
   const pathname = usePathname();
@@ -107,9 +108,19 @@ export function Header() {
               </div>
             )}
           </div>
+          <SocialLinks
+            className="flex items-center gap-1"
+            linkClassName="inline-flex h-9 w-9 items-center justify-center rounded-lg text-white transition hover:bg-white/10 hover:text-white/90"
+            iconClassName="h-[18px] w-[18px]"
+          />
         </nav>
 
         <div className="flex items-center gap-2">
+          <SocialLinks
+            className="flex items-center gap-0.5 md:hidden"
+            linkClassName="inline-flex h-9 w-9 items-center justify-center rounded-lg text-white transition hover:bg-white/10"
+            iconClassName="h-[18px] w-[18px]"
+          />
           <a
             href={valutaHref}
             className="btn-primary !py-2.5 !px-4 text-sm"
@@ -155,11 +166,17 @@ export function Header() {
                 {service.label}
               </Link>
             ))}
+            <SocialLinks
+              className="mt-2 flex flex-col gap-1"
+              showLabels
+              linkClassName="inline-flex items-center gap-2 rounded-lg px-3 py-3 font-semibold text-white transition hover:bg-white/10"
+              iconClassName="h-5 w-5"
+            />
             <a
               href={WHATSAPP_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-2 inline-flex items-center gap-2 rounded-lg px-3 py-3 font-semibold text-whatsapp"
+              className="inline-flex items-center gap-2 rounded-lg px-3 py-3 font-semibold text-whatsapp"
               onClick={() => setMobileOpen(false)}
             >
               <WhatsAppIcon className="h-5 w-5" />

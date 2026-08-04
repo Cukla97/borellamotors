@@ -1,6 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ManageCookiesButton } from "@/components/ManageCookiesButton";
+import { SocialLinks } from "@/components/SocialLinks";
+import { SOCIAL_LINKS } from "@/lib/social";
 import { WHATSAPP_LABEL, WHATSAPP_URL } from "@/lib/whatsapp";
 
 export function Footer() {
@@ -19,6 +21,11 @@ export function Footer() {
             Valutazione gratuita della tua auto usata. Se accetti, gestisco io i
             passaggi della vendita.
           </p>
+          <SocialLinks
+            className="mt-5 flex items-center gap-2"
+            linkClassName="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-white/15 text-white transition hover:border-white/40 hover:bg-white/10"
+            iconClassName="h-5 w-5"
+          />
         </div>
         <div>
           <h3 className="font-semibold">Contatti</h3>
@@ -83,13 +90,26 @@ export function Footer() {
             <li>
               <ManageCookiesButton />
             </li>
+            {SOCIAL_LINKS.map((link) => (
+              <li key={link.label}>
+                <a
+                  href={link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-white"
+                >
+                  {link.label}
+                </a>
+              </li>
+            ))}
           </ul>
         </div>
       </div>
       <div className="site-container mt-10 space-y-2 border-t border-white/10 pb-20 pt-6 sm:pb-8">
         <p className="text-sm text-white/70">
-          © {new Date().getFullYear()} BORELLA MOTORS DI BORELLA NICCOLO&apos;.
-          Tutti i diritti riservati.
+          © {new Date().getFullYear()}
+          {" "}
+          BORELLA MOTORS DI BORELLA NICCOLO&apos;. Tutti i diritti riservati.
         </p>
         <p className="text-xs text-white/45">
           Sito web realizzato da Insane Agency

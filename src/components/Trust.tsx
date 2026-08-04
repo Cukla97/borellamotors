@@ -21,7 +21,7 @@ const points = [
 
 export function Trust() {
   return (
-    <section className="bg-black py-16 text-white md:py-24">
+    <section className="section-wash section-wash-garage py-16 text-white md:py-24">
       <div className="site-container grid items-center gap-10 md:grid-cols-2 md:gap-14">
         <div>
           <h2 className="text-3xl font-bold tracking-tight md:text-4xl">

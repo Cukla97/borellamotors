@@ -1,24 +1,65 @@
 import type { Metadata } from "next";
+import {
+  Camera,
+  ClipboardCheck,
+  Hammer,
+  MessageCircle,
+} from "lucide-react";
 import { ServicePage } from "@/components/ServicePage";
 
 export const metadata: Metadata = {
   title: "Riparazione grandine | Borella Motors",
   description:
-    "Interventi per danni da grandine su carrozzeria. Contatta Borella Motors a Treviso.",
+    "Valuto i danni da grandine e ti propongo il ripristino più adatto. Contattami a Treviso.",
 };
 
 export default function GrandinePage() {
   return (
     <ServicePage
-      eyebrow="Servizi"
-      title="Riparazione danni da grandine"
-      description="Valuto i danni e ti propongo il percorso di ripristino più adatto: dalla stima iniziale all’intervento, con attenzione a tempi e risultato estetico."
+      eyebrow="Servizi · Grandine"
+      title="Ripristino danni da grandine"
+      description="Dalla stima all’intervento: ti dico cosa serve davvero e come riportare la carrozzeria in ordine, senza sorprese."
+      image={{
+        src: "/hero-lot.jpg",
+        alt: "Auto in piazzale Borella Motors",
+      }}
       highlights={[
-        "Ispezione e stima dei danni su carrozzeria e superfici esposte",
-        "Indicazione del tipo di intervento consigliato (PDR o ripristino tradizionale, in base al caso)",
-        "Preventivo chiaro e supporto nella gestione pratica del lavoro",
-        "Possibilità di abbinare valutazione auto se stai pensando di vendere",
+        {
+          icon: ClipboardCheck,
+          title: "Ispezione chiara",
+          text: "Controllo carrozzeria e superfici esposte, con stima concreta dei danni.",
+        },
+        {
+          icon: Hammer,
+          title: "Intervento mirato",
+          text: "PDR o ripristino tradizionale, in base al caso e al risultato estetico.",
+        },
+        {
+          icon: MessageCircle,
+          title: "Preventivo diretto",
+          text: "Ti spiego costi e tempi in modo semplice, prima di partire.",
+        },
+        {
+          icon: Camera,
+          title: "Anche se vuoi vendere",
+          text: "Possiamo abbinare una valutazione dell’auto, se stai valutando la vendita.",
+        },
       ]}
+      steps={[
+        {
+          title: "Mi scrivi",
+          text: "Mandami qualche foto su WhatsApp: capisco subito la situazione.",
+        },
+        {
+          title: "Ti propongo",
+          text: "Ricevi una proposta chiara su intervento, tempi e costi.",
+        },
+        {
+          title: "Si interviene",
+          text: "Organiziamo il lavoro e riportiamo la carrozzeria a livello.",
+        },
+      ]}
+      closing="Hai la grandine sulla carrozzeria? Mandami le foto: ti rispondo in tempi rapidi."
     />
   );
 }

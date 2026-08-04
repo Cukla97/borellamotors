@@ -1,24 +1,65 @@
 import type { Metadata } from "next";
+import {
+  Droplets,
+  Sparkles,
+  Sofa,
+  Shield,
+} from "lucide-react";
 import { ServicePage } from "@/components/ServicePage";
 
 export const metadata: Metadata = {
   title: "Detailing auto | Borella Motors",
   description:
-    "Detailing e cura estetica dell’auto. Contatta Borella Motors a Treviso.",
+    "Detailing per far tornare brillante e protetta la tua auto. Contattami a Treviso.",
 };
 
 export default function DetailingPage() {
   return (
     <ServicePage
-      eyebrow="Servizi"
+      eyebrow="Servizi · Detailing"
       title="Detailing e cura dell’auto"
-      description="Trattamenti di detailing per valorizzare aspetto e protezione della vettura: dalla pulizia approfondita alla cura di carrozzeria e interni."
+      description="Trattamenti mirati per pulizia, profondità del colore e protezione: l’auto torna curata, senza esagerare con i passaggi inutili."
+      image={{
+        src: "/trust-handshake.jpg",
+        alt: "Dettaglio cura auto Borella Motors",
+      }}
       highlights={[
-        "Decontaminazione e lavaggio professionale",
-        "Trattamenti su carrozzeria per profondità del colore e protezione",
-        "Pulizia e sanificazione interni su richiesta",
-        "Consulenza sul trattamento più adatto allo stato della tua auto",
+        {
+          icon: Droplets,
+          title: "Lavaggio serio",
+          text: "Decontaminazione e lavaggio professionale, non un passaggio frettoloso.",
+        },
+        {
+          icon: Sparkles,
+          title: "Carrozzeria valorizzata",
+          text: "Trattamenti per far tornare lucido e pieno il colore.",
+        },
+        {
+          icon: Shield,
+          title: "Protezione",
+          text: "Scudi e finiture per mantenere più a lungo il risultato.",
+        },
+        {
+          icon: Sofa,
+          title: "Interni su richiesta",
+          text: "Pulizia e sanificazione abitacolo, se serve davvero.",
+        },
       ]}
+      steps={[
+        {
+          title: "Mi racconti l’auto",
+          text: "Stato attuale, obiettivo e tempi: capiamo insieme il trattamento giusto.",
+        },
+        {
+          title: "Definiamo il lavoro",
+          text: "Ti propongo solo ciò che serve, con tempi e costi chiari.",
+        },
+        {
+          title: "Consegno il risultato",
+          text: "Auto curata, ordinata e pronta da guidare o da mostrare.",
+        },
+      ]}
+      closing="Vuoi far tornare splendida la tua auto? Scrivimi su WhatsApp e partiamo da lì."
     />
   );
 }
