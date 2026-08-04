@@ -12,7 +12,7 @@ export default function GrandinePage() {
     <ServicePage
       eyebrow="Servizi"
       title="Riparazione danni da grandine"
-      description="Valutiamo i danni e ti proponiamo il percorso di ripristino più adatto: dalla stima iniziale all’intervento, con attenzione a tempi e risultato estetico."
+      description="Valuto i danni e ti propongo il percorso di ripristino più adatto: dalla stima iniziale all’intervento, con attenzione a tempi e risultato estetico."
       highlights={[
         "Ispezione e stima dei danni su carrozzeria e superfici esposte",
         "Indicazione del tipo di intervento consigliato (PDR o ripristino tradizionale, in base al caso)",

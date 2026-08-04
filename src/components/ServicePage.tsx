@@ -66,8 +66,8 @@ export function ServicePage({
               ))}
             </ul>
             <p className="mt-10 text-muted">
-              Vuoi un preventivo o una valutazione sul posto? Contattaci su
-              WhatsApp: ti rispondiamo in tempi rapidi.
+              Vuoi un preventivo o una valutazione sul posto? Contattami su
+              WhatsApp: ti rispondo in tempi rapidi.
             </p>
           </div>
         </section>

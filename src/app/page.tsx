@@ -12,15 +12,15 @@ export default function HomePage() {
   return (
     <>
       <Header />
-      <main>
+      <main className="page-stack">
         <Hero />
         <ComeFunziona />
         <InstagramFeed />
         <FormValutazione />
         <Trust />
         <FAQ />
+        <Footer />
       </main>
-      <Footer />
       <WhatsAppFloat />
     </>
   );

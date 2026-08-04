@@ -72,14 +72,18 @@ export function FormValutazione() {
   };
 
   return (
-    <section id="valutazione" className="bg-surface py-16 md:py-24">
+    <section
+      id="valutazione"
+      className="section-wash section-wash-signal py-16 md:py-24"
+    >
       <div className="site-container">
         <div className="max-w-2xl">
-          <h2 className="text-3xl font-bold tracking-tight text-black md:text-4xl">
-            Richiedi una valutazione gratuita
+          <h2 className="inline-block border-b-4 border-red pb-2 text-3xl font-bold tracking-tight text-black md:text-4xl">
+            Richiedi una valutazione{" "}
+            <span className="word-blink">gratuita</span>
           </h2>
           <p className="mt-3 text-muted">
-            Parti dalla targa: con quella recuperiamo i dati principali
+            Parti dalla targa: con quella recupero i dati principali
             dell&apos;auto. Aggiungi solo ciò che serve per una proposta più
             precisa.
           </p>
@@ -87,13 +91,13 @@ export function FormValutazione() {
 
         <form
           onSubmit={handleSubmit(onSubmit)}
-          className="relative mt-10 space-y-10"
+          className="form-compact relative mt-8 space-y-6"
           noValidate
         >
-          <fieldset className="space-y-5">
-            <legend className="text-xl font-bold text-ink">Dati veicolo</legend>
-            <div className="grid gap-4 md:grid-cols-2">
-              <div className="field md:col-span-2">
+          <fieldset className="space-y-3">
+            <legend className="text-lg font-bold text-ink">Dati veicolo</legend>
+            <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+              <div className="field">
                 <label htmlFor="targa">Targa *</label>
                 <input
                   id="targa"
@@ -125,7 +129,7 @@ export function FormValutazione() {
                   <option>Automatico</option>
                 </select>
               </div>
-              <div className="field md:col-span-2">
+              <div className="field sm:col-span-2 lg:col-span-1">
                 <label htmlFor="tempistiche">In quanto vuoi venderla? *</label>
                 <select id="tempistiche" {...register("tempistiche")}>
                   <option value="">Seleziona</option>
@@ -154,11 +158,11 @@ export function FormValutazione() {
                 </select>
               </div>
               {incidenti === "Si" && (
-                <div className="field md:col-span-2">
+                <div className="field sm:col-span-2 lg:col-span-3">
                   <label htmlFor="incidentiNote">Note sugli incidenti</label>
                   <textarea
                     id="incidentiNote"
-                    rows={3}
+                    rows={2}
                     {...register("incidentiNote")}
                   />
                 </div>
@@ -166,20 +170,22 @@ export function FormValutazione() {
             </div>
           </fieldset>
 
-          <fieldset className="space-y-4">
-            <legend className="text-xl font-bold text-ink">
+          <fieldset className="space-y-2">
+            <legend className="text-lg font-bold text-ink">
               Foto del veicolo
             </legend>
             <p className="text-sm text-muted">
-              Facoltativo ma consigliato. Massimo 6 foto (esterno, interno,
-              cruscotto/km, eventuali danni).
+              Facoltativo. Massimo 6 foto (esterno, interno, cruscotto/km,
+              danni).
             </p>
-            <label className="flex cursor-pointer flex-col items-center justify-center gap-2 rounded-xl border border-dashed border-line bg-surface-soft px-4 py-8 text-center transition hover:border-black">
-              <Upload className="h-6 w-6 text-black" aria-hidden />
-              <span className="font-semibold text-ink">
-                Carica fino a 6 foto
+            <label className="flex cursor-pointer items-center justify-center gap-3 rounded-lg border border-dashed border-line bg-surface-soft px-4 py-4 text-center transition hover:border-black sm:justify-start">
+              <Upload className="h-5 w-5 shrink-0 text-black" aria-hidden />
+              <span className="text-sm">
+                <span className="font-semibold text-ink">
+                  Carica fino a 6 foto
+                </span>
+                <span className="text-muted"> · JPG, PNG o WEBP</span>
               </span>
-              <span className="text-sm text-muted">JPG, PNG o WEBP</span>
               <input
                 type="file"
                 accept="image/*"
@@ -196,16 +202,23 @@ export function FormValutazione() {
             )}
           </fieldset>
 
-          <fieldset className="space-y-5">
-            <legend className="text-xl font-bold text-ink">
+          <fieldset className="space-y-3">
+            <legend className="text-lg font-bold text-ink">
               I tuoi contatti
             </legend>
-            <div className="grid gap-4 md:grid-cols-2">
-              <div className="field md:col-span-2">
+            <div className="grid gap-3 sm:grid-cols-2">
+              <div className="field">
                 <label htmlFor="nome">Nome e cognome *</label>
                 <input id="nome" {...register("nome")} />
                 {errors.nome && (
                   <span className="error">{errors.nome.message}</span>
+                )}
+              </div>
+              <div className="field">
+                <label htmlFor="citta">Città / Provincia *</label>
+                <input id="citta" {...register("citta")} />
+                {errors.citta && (
+                  <span className="error">{errors.citta.message}</span>
                 )}
               </div>
               <div className="field">
@@ -222,24 +235,17 @@ export function FormValutazione() {
                   <span className="error">{errors.telefono.message}</span>
                 )}
               </div>
-              <div className="field md:col-span-2">
-                <label htmlFor="citta">Città / Provincia *</label>
-                <input id="citta" {...register("citta")} />
-                {errors.citta && (
-                  <span className="error">{errors.citta.message}</span>
-                )}
-              </div>
-              <div className="field md:col-span-2">
+              <div className="field sm:col-span-2">
                 <label htmlFor="note">Note aggiuntive</label>
-                <textarea id="note" rows={4} {...register("note")} />
+                <textarea id="note" rows={2} {...register("note")} />
               </div>
             </div>
 
-            <div className="space-y-3">
-              <label className="flex items-start gap-3 text-sm text-ink">
+            <div className="space-y-2">
+              <label className="flex items-start gap-2.5 text-sm text-ink">
                 <input
                   type="checkbox"
-                  className="mt-1 h-4 w-4"
+                  className="mt-0.5 h-4 w-4"
                   {...register("privacy")}
                 />
                 <span>
@@ -253,10 +259,10 @@ export function FormValutazione() {
               {errors.privacy && (
                 <span className="error block">{errors.privacy.message}</span>
               )}
-              <label className="flex items-start gap-3 text-sm text-ink">
+              <label className="flex items-start gap-2.5 text-sm text-ink">
                 <input
                   type="checkbox"
-                  className="mt-1 h-4 w-4"
+                  className="mt-0.5 h-4 w-4"
                   {...register("marketing")}
                 />
                 <span>

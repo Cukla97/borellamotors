@@ -58,8 +58,8 @@ export function CookieBanner() {
               Informativa sui cookie
             </h2>
             <p className="mt-2 text-sm leading-relaxed text-muted">
-              Utilizziamo cookie tecnici necessari al funzionamento del sito. Con
-              il tuo consenso potremo attivare anche cookie analitici e di
+              Utilizzo cookie tecnici necessari al funzionamento del sito. Con
+              il tuo consenso potrò attivare anche cookie analitici e di
               marketing. Puoi accettare tutti i cookie, rifiutare quelli non
               necessari o personalizzare le preferenze. Per saperne di più leggi
               la{" "}

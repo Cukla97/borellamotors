@@ -185,7 +185,7 @@ export default function PrivacyPage() {
       <LegalSection title="9. Minori">
         <p>
           I servizi del sito non sono destinati a minori di 18 anni. Non
-          raccogliamo consapevolmente dati di minori.
+          vengono raccolti consapevolmente dati di minori.
         </p>
       </LegalSection>
 

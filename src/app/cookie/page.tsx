@@ -49,10 +49,9 @@ export default function CookiePage() {
           Vengono installati solo con il tuo consenso.
         </p>
         <p>
-          Il feed Instagram è incorporato tramite SnapWidget / Mirror App e
-          può comportare il caricamento di risorse di terze parti (SnapWidget /
-          Meta). Puoi comunque aprire il profilo Instagram anche tramite link
-          esterno.
+          Il feed Instagram è incorporato tramite Elfsight e può comportare
+          il caricamento di risorse di terze parti (Elfsight / Meta). Puoi
+          comunque aprire il profilo Instagram anche tramite link esterno.
         </p>
       </LegalSection>
 

@@ -5,7 +5,7 @@ const faqs = [
   },
   {
     q: "Quanto tempo ci vuole?",
-    a: "Di solito ti ricontattiamo entro 24 ore lavorative dalla richiesta.",
+    a: "Di solito ti ricontatto entro 24 ore lavorative dalla richiesta.",
   },
   {
     q: "Devo avere il libretto?",
@@ -13,17 +13,20 @@ const faqs = [
   },
   {
     q: "Devo caricare le foto?",
-    a: "Non è obbligatorio, ma aiuta a proporti una stima più precisa e veloce.",
+    a: "Non è obbligatorio, ma mi aiuta a proporti una stima più precisa e veloce.",
   },
   {
     q: "Cosa succede dopo l’invio?",
-    a: "Riceviamo la richiesta, la valutiamo e ti contattiamo per telefono o email con una proposta.",
+    a: "Ricevo la richiesta, la valuto e ti contatto per telefono o email con una proposta.",
   },
 ];
 
 export function FAQ() {
   return (
-    <section id="faq" className="bg-surface-soft py-16 md:py-24">
+    <section
+      id="faq"
+      className="section-wash section-wash-dusk py-16 md:py-24"
+    >
       <div className="site-container max-w-3xl">
           <h2 className="text-3xl font-bold tracking-tight text-black md:text-4xl">
             Domande frequenti

@@ -26,8 +26,8 @@ export function Hero() {
             Vuoi vendere la tua auto? Scopri subito il valore
           </h1>
           <p className="mt-5 max-w-xl text-base text-white/90 md:text-lg">
-            Valutazione gratuita in 24 ore, nessun impegno. Se accetti, pensiamo
-            noi a tutto il resto.
+            Valutazione gratuita in 24 ore, nessun impegno. Se accetti, penso io
+            a tutto il resto.
           </p>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
             <a href="#valutazione" className="btn-primary">

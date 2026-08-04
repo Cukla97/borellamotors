@@ -19,11 +19,11 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://borellamotors.com"),
   title: "Borella Motors | Valutazione gratuita auto usate",
   description:
-    "Vuoi vendere la tua auto? Richiedi una valutazione gratuita in 24 ore. Se accetti, Borella Motors si occupa di tutto.",
+    "Vuoi vendere la tua auto? Richiedi una valutazione gratuita in 24 ore. Se accetti, mi occupo io di tutto.",
   openGraph: {
     title: "Borella Motors | Valutazione gratuita auto usate",
     description:
-      "Valutazione gratuita in 24 ore, nessun impegno. Se accetti, pensiamo noi a tutto il resto.",
+      "Valutazione gratuita in 24 ore, nessun impegno. Se accetti, penso io a tutto il resto.",
     type: "website",
     locale: "it_IT",
     images: ["/hero-lot.jpg"],

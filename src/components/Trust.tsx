@@ -10,12 +10,12 @@ const points = [
   {
     icon: Clock3,
     title: "Risposta in 24 ore",
-    text: "Ti ricontattiamo rapidamente con una stima seria e trasparente.",
+    text: "Ti ricontatto rapidamente con una stima seria e trasparente.",
   },
   {
     icon: MapPin,
     title: "Rivenditore locale",
-    text: "Parli con persone reali della zona, non con un portale anonimo.",
+    text: "Parli con me, non con un portale anonimo.",
   },
 ];
 
@@ -28,8 +28,8 @@ export function Trust() {
             Un passaggio concreto, senza pressione
           </h2>
           <p className="mt-3 text-white/80">
-            Borella Motors ti aiuta a vendere l&apos;auto con un processo chiaro:
-            dati, proposta, vendita. Niente countdown e niente trucchi.
+            Ti aiuto a vendere l&apos;auto con un processo chiaro: dati,
+            proposta, vendita. Niente countdown e niente trucchi.
           </p>
           <ul className="mt-8 space-y-5">
             {points.map((point) => {

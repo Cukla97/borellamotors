@@ -8,19 +8,22 @@ const steps = [
   },
   {
     icon: PhoneCall,
-    title: "Ti ricontattiamo con una proposta",
-    text: "Entro 24 ore ti chiamiamo o scriviamo con una proposta di acquisto concreta.",
+    title: "Ti ricontatto con una proposta",
+    text: "Entro 24 ore ti chiamo o ti scrivo con una proposta di acquisto concreta.",
   },
   {
     icon: Handshake,
-    title: "Se accetti, ci occupiamo noi di tutto",
+    title: "Se accetti, mi occupo io di tutto",
     text: "Passaggi, documenti e ritiro: riduci al minimo i pensieri della vendita.",
   },
 ];
 
 export function ComeFunziona() {
   return (
-    <section id="come-funziona" className="bg-surface py-16 md:py-24">
+    <section
+      id="come-funziona"
+      className="section-wash section-wash-mist py-16 md:py-24"
+    >
       <div className="site-container">
         <div className="max-w-2xl">
           <h2 className="text-3xl font-bold tracking-tight text-black md:text-4xl">

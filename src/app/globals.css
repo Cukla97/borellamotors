@@ -14,7 +14,7 @@
   --whatsapp-hover: #1ebe57;
   --success: var(--red);
   --danger: var(--red);
-  --background: var(--surface-soft);
+  --background: #ffffff;
   --foreground: var(--ink);
 }
 
@@ -83,10 +83,134 @@ p {
   margin-inline: auto;
 }
 
+/* White gap only between stacked sections (top/bottom) */
+.page-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  background: #ffffff;
+}
+
+@media (min-width: 768px) {
+  .page-stack {
+    gap: 1rem;
+  }
+}
+
+/* Soft multi-stop washes — Apple-like dissolves, brand-tinted */
+.section-wash {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.section-wash::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.section-wash-mist::before {
+  background:
+    radial-gradient(
+      70% 55% at 12% 18%,
+      color-mix(in oklab, #c7d4e8 55%, transparent),
+      transparent 70%
+    ),
+    radial-gradient(
+      55% 50% at 88% 28%,
+      color-mix(in oklab, #f0c8c4 48%, transparent),
+      transparent 68%
+    ),
+    radial-gradient(
+      60% 45% at 48% 100%,
+      color-mix(in oklab, #e8e4f0 40%, transparent),
+      transparent 70%
+    ),
+    #f4f5f7;
+}
+
+.section-wash-garage::before {
+  background:
+    radial-gradient(
+      80% 65% at 10% 20%,
+      color-mix(in oklab, var(--red) 75%, transparent),
+      transparent 62%
+    ),
+    radial-gradient(
+      70% 55% at 95% 15%,
+      color-mix(in oklab, #1a4a8a 70%, transparent),
+      transparent 58%
+    ),
+    radial-gradient(
+      75% 55% at 50% 100%,
+      color-mix(in oklab, #8a1530 65%, transparent),
+      transparent 65%
+    ),
+    #1a0f12;
+}
+
+.section-wash-signal::before {
+  background:
+    radial-gradient(
+      80% 55% at 15% 0%,
+      color-mix(in oklab, var(--red) 14%, transparent),
+      transparent 65%
+    ),
+    radial-gradient(
+      55% 45% at 85% 40%,
+      color-mix(in oklab, #d7e3f4 55%, transparent),
+      transparent 70%
+    ),
+    radial-gradient(
+      50% 40% at 40% 100%,
+      color-mix(in oklab, #f5e6dc 45%, transparent),
+      transparent 70%
+    ),
+    #f7f7f8;
+}
+
+.section-wash-dusk::before {
+  background:
+    radial-gradient(
+      65% 50% at 20% 80%,
+      color-mix(in oklab, #b8c9e0 50%, transparent),
+      transparent 70%
+    ),
+    radial-gradient(
+      60% 45% at 90% 15%,
+      color-mix(in oklab, var(--red) 12%, transparent),
+      transparent 65%
+    ),
+    radial-gradient(
+      55% 40% at 50% 40%,
+      color-mix(in oklab, #e8d5e4 35%, transparent),
+      transparent 70%
+    ),
+    #f2f3f6;
+}
+
 .field {
   display: flex;
   flex-direction: column;
   gap: 0.35rem;
+}
+
+.form-compact .field {
+  gap: 0.2rem;
+}
+
+.form-compact .field label {
+  font-size: 0.8125rem;
+}
+
+.form-compact .field input,
+.form-compact .field select,
+.form-compact .field textarea {
+  padding: 0.55rem 0.75rem;
+  border-radius: 0.4rem;
 }
 
 .field label {
@@ -192,4 +316,23 @@ p {
 
 .btn-whatsapp:active {
   transform: translateY(1px);
+}
+
+@keyframes word-blink {
+  0%,
+  40% {
+    opacity: 1;
+  }
+  50%,
+  90% {
+    opacity: 0.15;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.word-blink {
+  color: var(--red);
+  animation: word-blink 1.4s ease-in-out infinite;
 }

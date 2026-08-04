@@ -7,7 +7,7 @@ import { WHATSAPP_LABEL, WHATSAPP_URL } from "@/lib/whatsapp";
 
 export const metadata: Metadata = {
   title: "Richiesta inviata | Borella Motors",
-  description: "Abbiamo ricevuto la tua richiesta di valutazione.",
+  description: "Ho ricevuto la tua richiesta di valutazione.",
 };
 
 export default function GraziePage() {
@@ -38,9 +38,9 @@ export default function GraziePage() {
             Richiesta inviata
           </h1>
           <p className="mt-4 text-muted">
-            Grazie. Abbiamo ricevuto i dati della tua auto. Ti ricontattiamo di
-            solito entro 24 ore lavorative con una proposta. Se preferisci, puoi
-            scriverci subito su WhatsApp.
+            Grazie. Ho ricevuto i dati della tua auto. Ti ricontatto di solito
+            entro 24 ore lavorative con una proposta. Se preferisci, puoi
+            scrivermi subito su WhatsApp.
           </p>
           <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
             <a
@@ -65,7 +65,7 @@ export default function GraziePage() {
               href="mailto:borellaniccolo@gmail.com"
               className="font-semibold text-black underline"
             >
-              scrivici via email
+              scrivimi via email
             </a>
             .
           </p>

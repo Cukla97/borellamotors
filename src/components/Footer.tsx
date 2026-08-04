@@ -16,8 +16,8 @@ export function Footer() {
             className="h-10 w-auto brightness-0 invert"
           />
           <p className="mt-4 max-w-sm text-sm text-white/70">
-            Valutazione gratuita della tua auto usata. Se accetti, gestiamo noi
-            i passaggi della vendita.
+            Valutazione gratuita della tua auto usata. Se accetti, gestisco io i
+            passaggi della vendita.
           </p>
         </div>
         <div>
