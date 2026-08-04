@@ -86,9 +86,14 @@ export function Footer() {
           </ul>
         </div>
       </div>
-      <div className="site-container mt-10 border-t border-white/10 pt-6 text-xs text-white/50">
-        © {new Date().getFullYear()} BORELLA MOTORS DI BORELLA NICCOLO&apos;.
-        Tutti i diritti riservati.
+      <div className="site-container mt-10 space-y-2 border-t border-white/10 pb-20 pt-6 sm:pb-8">
+        <p className="text-sm text-white/70">
+          © {new Date().getFullYear()} BORELLA MOTORS DI BORELLA NICCOLO&apos;.
+          Tutti i diritti riservati.
+        </p>
+        <p className="text-xs text-white/45">
+          Sito web realizzato da Insane Agency
+        </p>
       </div>
     </footer>
   );

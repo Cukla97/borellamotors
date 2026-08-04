@@ -49,10 +49,10 @@ export default function CookiePage() {
           Vengono installati solo con il tuo consenso.
         </p>
         <p>
-          Allo stato attuale il sito utilizza principalmente cookie tecnici e la
-          memorizzazione locale della preferenza di consenso. Eventuali
-          strumenti analitici o di marketing saranno attivati solo dopo il tuo
-          consenso espresso tramite il banner.
+          Il feed Instagram è incorporato tramite SnapWidget / Mirror App e
+          può comportare il caricamento di risorse di terze parti (SnapWidget /
+          Meta). Puoi comunque aprire il profilo Instagram anche tramite link
+          esterno.
         </p>
       </LegalSection>
 

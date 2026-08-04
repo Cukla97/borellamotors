@@ -1,6 +1,7 @@
 import { Header } from "@/components/Header";
 import { Hero } from "@/components/Hero";
 import { ComeFunziona } from "@/components/ComeFunziona";
+import { InstagramFeed } from "@/components/InstagramFeed";
 import { FormValutazione } from "@/components/FormValutazione";
 import { Trust } from "@/components/Trust";
 import { FAQ } from "@/components/FAQ";
@@ -14,6 +15,7 @@ export default function HomePage() {
       <main>
         <Hero />
         <ComeFunziona />
+        <InstagramFeed />
         <FormValutazione />
         <Trust />
         <FAQ />
