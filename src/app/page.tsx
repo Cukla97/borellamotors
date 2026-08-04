@@ -5,7 +5,7 @@ import { FormValutazione } from "@/components/FormValutazione";
 import { Trust } from "@/components/Trust";
 import { FAQ } from "@/components/FAQ";
 import { Footer } from "@/components/Footer";
-import { StickyCta } from "@/components/StickyCta";
+import { WhatsAppFloat } from "@/components/WhatsAppFloat";
 
 export default function HomePage() {
   return (
@@ -19,7 +19,7 @@ export default function HomePage() {
         <FAQ />
       </main>
       <Footer />
-      <StickyCta />
+      <WhatsAppFloat />
     </>
   );
 }

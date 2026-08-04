@@ -1,4 +1,7 @@
 import Image from "next/image";
+import { ChevronDown } from "lucide-react";
+import { WhatsAppIcon } from "@/components/WhatsAppIcon";
+import { WHATSAPP_LABEL, WHATSAPP_URL } from "@/lib/whatsapp";
 
 export function Hero() {
   return (
@@ -30,10 +33,25 @@ export function Hero() {
             <a href="#valutazione" className="btn-primary">
               Richiedi una valutazione gratuita
             </a>
-            <a href="#come-funziona" className="btn-secondary">
-              Come funziona
+            <a
+              href={WHATSAPP_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-whatsapp"
+            >
+              <WhatsAppIcon className="h-5 w-5" />
+              {WHATSAPP_LABEL}
             </a>
           </div>
+          <p className="mt-4">
+            <a
+              href="#come-funziona"
+              className="inline-flex items-center gap-1 text-sm font-semibold text-white/80 underline-offset-4 transition hover:text-white hover:underline"
+            >
+              Come funziona
+              <ChevronDown className="h-4 w-4" aria-hidden />
+            </a>
+          </p>
         </div>
       </div>
     </section>

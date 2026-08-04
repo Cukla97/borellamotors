@@ -10,6 +10,8 @@
   --surface-soft: #f5f5f5;
   --red: #c8102e;
   --red-hover: #a80e27;
+  --whatsapp: #25d366;
+  --whatsapp-hover: #1ebe57;
   --success: var(--red);
   --danger: var(--red);
   --background: var(--surface-soft);
@@ -28,6 +30,8 @@
   --color-surface-soft: var(--surface-soft);
   --color-red: var(--red);
   --color-red-hover: var(--red-hover);
+  --color-whatsapp: var(--whatsapp);
+  --color-whatsapp-hover: var(--whatsapp-hover);
   --color-success: var(--success);
   --color-danger: var(--danger);
   --font-sans: var(--font-body);
@@ -167,4 +171,25 @@ p {
 .btn-secondary:hover {
   background: rgba(255, 255, 255, 0.1);
   border-color: white;
+}
+
+.btn-whatsapp {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background: var(--whatsapp);
+  color: white;
+  font-weight: 700;
+  border-radius: 0.55rem;
+  padding: 0.9rem 1.35rem;
+  transition: background 160ms ease, transform 160ms ease;
+}
+
+.btn-whatsapp:hover {
+  background: var(--whatsapp-hover);
+}
+
+.btn-whatsapp:active {
+  transform: translateY(1px);
 }

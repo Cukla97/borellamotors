@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ManageCookiesButton } from "@/components/ManageCookiesButton";
+import { WHATSAPP_LABEL, WHATSAPP_URL } from "@/lib/whatsapp";
 
 export function Footer() {
   return (
@@ -30,6 +31,16 @@ export function Footer() {
                 className="hover:text-white"
               >
                 borellaniccolo@gmail.com
+              </a>
+            </li>
+            <li>
+              <a
+                href={WHATSAPP_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-semibold text-whatsapp hover:underline"
+              >
+                {WHATSAPP_LABEL}
               </a>
             </li>
             <li>Via Luigi Einaudi 1 — 31100 Treviso (TV)</li>

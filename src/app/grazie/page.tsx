@@ -2,6 +2,8 @@ import Image from "next/image";
 import Link from "next/link";
 import type { Metadata } from "next";
 import { CheckCircle2 } from "lucide-react";
+import { WhatsAppIcon } from "@/components/WhatsAppIcon";
+import { WHATSAPP_LABEL, WHATSAPP_URL } from "@/lib/whatsapp";
 
 export const metadata: Metadata = {
   title: "Richiesta inviata | Borella Motors",
@@ -37,19 +39,36 @@ export default function GraziePage() {
           </h1>
           <p className="mt-4 text-muted">
             Grazie. Abbiamo ricevuto i dati della tua auto. Ti ricontattiamo di
-            solito entro 24 ore lavorative con una proposta.
+            solito entro 24 ore lavorative con una proposta. Se preferisci, puoi
+            scriverci subito su WhatsApp.
           </p>
           <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
-            <Link href="/" className="btn-primary">
-              Torna alla home
-            </Link>
             <a
-              href="mailto:borellaniccolo@gmail.com"
+              href={WHATSAPP_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-whatsapp"
+            >
+              <WhatsAppIcon className="h-5 w-5" />
+              {WHATSAPP_LABEL}
+            </a>
+            <Link
+              href="/"
               className="inline-flex items-center justify-center rounded-lg border border-line px-5 py-3 font-semibold text-black"
             >
-              Scrivici via email
-            </a>
+              Torna alla home
+            </Link>
           </div>
+          <p className="mt-4 text-sm text-muted">
+            Oppure{" "}
+            <a
+              href="mailto:borellaniccolo@gmail.com"
+              className="font-semibold text-black underline"
+            >
+              scrivici via email
+            </a>
+            .
+          </p>
         </div>
       </div>
     </main>
