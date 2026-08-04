@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { ManageCookiesButton } from "@/components/ManageCookiesButton";
 
 export function Footer() {
   return (
@@ -21,10 +22,18 @@ export function Footer() {
         <div>
           <h3 className="font-semibold">Contatti</h3>
           <ul className="mt-3 space-y-2 text-sm text-white/70">
-            <li>Email: info@borellamotors.it</li>
-            <li>Tel: da aggiornare</li>
-            <li>Indirizzo: da aggiornare</li>
-            <li>P.IVA: da aggiornare</li>
+            <li>BORELLA MOTORS DI BORELLA NICCOLO&apos;</li>
+            <li>
+              Email:{" "}
+              <a
+                href="mailto:borellaniccolo@gmail.com"
+                className="hover:text-white"
+              >
+                borellaniccolo@gmail.com
+              </a>
+            </li>
+            <li>Via Luigi Einaudi 1 — 31100 Treviso (TV)</li>
+            <li>P.IVA: 05470920264</li>
           </ul>
         </div>
         <div>
@@ -37,14 +46,23 @@ export function Footer() {
             </li>
             <li>
               <Link href="/privacy" className="hover:text-white">
-                Privacy Policy
+                Informativa Privacy
               </Link>
+            </li>
+            <li>
+              <Link href="/cookie" className="hover:text-white">
+                Cookie Policy
+              </Link>
+            </li>
+            <li>
+              <ManageCookiesButton />
             </li>
           </ul>
         </div>
       </div>
       <div className="site-container mt-10 border-t border-white/10 pt-6 text-xs text-white/50">
-        © {new Date().getFullYear()} Borella Motors. Tutti i diritti riservati.
+        © {new Date().getFullYear()} BORELLA MOTORS DI BORELLA NICCOLO&apos;.
+        Tutti i diritti riservati.
       </div>
     </footer>
   );

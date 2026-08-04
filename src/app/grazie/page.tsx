@@ -44,7 +44,7 @@ export default function GraziePage() {
               Torna alla home
             </Link>
             <a
-              href="mailto:info@borellamotors.it"
+              href="mailto:borellaniccolo@gmail.com"
               className="inline-flex items-center justify-center rounded-lg border border-line px-5 py-3 font-semibold text-black"
             >
               Scrivici via email

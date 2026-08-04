@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Barlow_Condensed, Source_Sans_3 } from "next/font/google";
+import { CookieBanner } from "@/components/CookieBanner";
 import "./globals.css";
 
 const display = Barlow_Condensed({
@@ -15,6 +16,7 @@ const body = Source_Sans_3({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://borellamotors.com"),
   title: "Borella Motors | Valutazione gratuita auto usate",
   description:
     "Vuoi vendere la tua auto? Richiedi una valutazione gratuita in 24 ore. Se accetti, Borella Motors si occupa di tutto.",
@@ -34,7 +36,7 @@ const localBusinessJsonLd = {
   name: "Borella Motors",
   description:
     "Rivenditore di auto usate. Valutazione gratuita e proposta di acquisto.",
-  url: "https://borellamotors.it",
+  url: "https://borellamotors.com",
   image: "/logo-borellamotors.png",
   priceRange: "€€",
 };
@@ -54,6 +56,7 @@ export default function RootLayout({
           }}
         />
         {children}
+        <CookieBanner />
       </body>
     </html>
   );

@@ -243,9 +243,9 @@ export function FormValutazione() {
                   {...register("privacy")}
                 />
                 <span>
-                  Acconsento al trattamento dei dati secondo la{" "}
+                  Acconsento al trattamento dei dati secondo l’{" "}
                   <a href="/privacy" className="font-semibold text-black underline">
-                    Privacy Policy
+                    Informativa Privacy
                   </a>{" "}
                   *
                 </span>
