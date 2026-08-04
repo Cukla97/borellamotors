@@ -6,7 +6,7 @@ import { WHATSAPP_LABEL, WHATSAPP_URL } from "@/lib/whatsapp";
 export function Footer() {
   return (
     <footer className="bg-black-deep py-12 text-white">
-      <div className="site-container grid gap-8 md:grid-cols-[1.2fr_1fr_1fr]">
+      <div className="site-container grid gap-8 md:grid-cols-2 lg:grid-cols-4">
         <div>
           <Image
             src="/logo-borellamotors.png"
@@ -48,13 +48,28 @@ export function Footer() {
           </ul>
         </div>
         <div>
-          <h3 className="font-semibold">Link utili</h3>
+          <h3 className="font-semibold">Servizi</h3>
           <ul className="mt-3 space-y-2 text-sm text-white/70">
             <li>
-              <a href="#valutazione" className="hover:text-white">
-                Richiedi valutazione
-              </a>
+              <Link href="/#valutazione" className="hover:text-white">
+                Valutazione auto
+              </Link>
             </li>
+            <li>
+              <Link href="/servizi/grandine" className="hover:text-white">
+                Grandine
+              </Link>
+            </li>
+            <li>
+              <Link href="/servizi/detailing" className="hover:text-white">
+                Detailing
+              </Link>
+            </li>
+          </ul>
+        </div>
+        <div>
+          <h3 className="font-semibold">Link utili</h3>
+          <ul className="mt-3 space-y-2 text-sm text-white/70">
             <li>
               <Link href="/privacy" className="hover:text-white">
                 Informativa Privacy
