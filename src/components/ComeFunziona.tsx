@@ -1,4 +1,6 @@
 import { ClipboardList, Handshake, PhoneCall, Play } from "lucide-react";
+import { InstagramIcon } from "@/components/SocialIcons";
+import { INSTAGRAM_URL } from "@/lib/social";
 
 const steps = [
   {
@@ -115,6 +117,15 @@ export function ComeFunziona() {
                 </p>
               </div>
             </div>
+            <a
+              href={INSTAGRAM_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-4 inline-flex w-full items-center justify-center gap-2 text-sm font-semibold text-ink transition hover:text-black"
+            >
+              <InstagramIcon className="h-5 w-5 text-[#E1306C]" />
+              Seguimi su Instagram
+            </a>
           </div>
         </div>
       </div>
