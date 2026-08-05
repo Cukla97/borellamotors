@@ -17,7 +17,7 @@ const faqs = [
   },
   {
     q: "Cosa succede dopo l’invio?",
-    a: "Ricevo la richiesta, la valuto e ti contatto per telefono o email con una proposta.",
+    a: "Ricevo la richiesta, la valuto e ti contatto per telefono con una proposta.",
   },
 ];
 

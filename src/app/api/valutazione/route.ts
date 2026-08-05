@@ -20,16 +20,12 @@ export async function POST(request: Request) {
     const raw = {
       targa: getString(formData, "targa"),
       chilometraggio: Number(getString(formData, "chilometraggio")),
-      cambio: getString(formData, "cambio"),
       tempistiche: getString(formData, "tempistiche"),
-      proprietari: getString(formData, "proprietari") || undefined,
       incidenti: getString(formData, "incidenti"),
       incidentiNote: getString(formData, "incidentiNote") || undefined,
       nome: getString(formData, "nome"),
-      email: getString(formData, "email"),
       telefono: getString(formData, "telefono"),
       citta: getString(formData, "citta"),
-      note: getString(formData, "note") || undefined,
       privacy: getString(formData, "privacy") === "true",
       marketing: getString(formData, "marketing") === "true",
     };
@@ -58,17 +54,13 @@ export async function POST(request: Request) {
       `VEICOLO`,
       `Targa: ${targa}`,
       `Km: ${data.chilometraggio}`,
-      `Cambio: ${data.cambio}`,
       `Tempistiche vendita: ${data.tempistiche}`,
-      `Proprietari: ${data.proprietari || "-"}`,
       `Incidenti: ${data.incidenti}${data.incidentiNote ? ` (${data.incidentiNote})` : ""}`,
       ``,
       `CONTATTO`,
       `Nome: ${data.nome}`,
-      `Email: ${data.email}`,
       `Telefono: ${data.telefono}`,
       `Città: ${data.citta}`,
-      `Note: ${data.note || "-"}`,
       ``,
       `Foto allegate: ${photos.length}`,
     ];
@@ -87,7 +79,6 @@ export async function POST(request: Request) {
         to: notificationEmail,
         subject: `Nuova richiesta di valutazione – ${targa}`,
         text: lines.join("\n"),
-        replyTo: data.email,
         attachments,
       });
 

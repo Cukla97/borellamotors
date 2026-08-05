@@ -64,10 +64,9 @@ export default function PrivacyPage() {
           </li>
           <li>
             <strong className="text-ink">Dati del form di valutazione</strong>:
-            targa, chilometraggio, tipo di cambio, tempistiche di vendita,
-            proprietari precedenti, incidenti e relative note, eventuali foto
-            del veicolo, nome e cognome, email, telefono, città/provincia, note
-            aggiuntive.
+            targa, chilometraggio, tempistiche di vendita, incidenti e relative
+            note, eventuali foto del veicolo, nome e cognome, telefono,
+            città/provincia.
           </li>
           <li>
             <strong className="text-ink">Dati di consenso</strong>: preferenze

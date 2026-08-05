@@ -13,22 +13,18 @@ export const valutazioneSchema = z
       .int()
       .min(0, "Chilometraggio non valido")
       .max(999999, "Chilometraggio non valido"),
-    cambio: z.enum(["Manuale", "Automatico"]),
     tempistiche: z.enum(
       ["Subito", "Entro 1 mese", "Entro 3 mesi", "Non ho fretta"],
       { error: "Indica entro quando vuoi venderla" },
     ),
-    proprietari: z.string().optional(),
     incidenti: z.enum(["Si", "No"]),
     incidentiNote: z.string().optional(),
     nome: z.string().min(2, "Inserisci nome e cognome"),
-    email: z.email("Email non valida"),
     telefono: z
       .string()
       .min(8, "Telefono non valido")
       .regex(/^[+\d\s().-]{8,20}$/, "Telefono non valido"),
     citta: z.string().min(2, "Inserisci città o provincia"),
-    note: z.string().optional(),
     privacy: z.literal(true, {
       error: "Devi accettare la privacy policy",
     }),
