@@ -1,20 +1,20 @@
-import { ClipboardList, Handshake, PhoneCall, Play } from "lucide-react";
+import { BadgeCheck, MessageSquare, Play, Scan } from "lucide-react";
 import { InstagramIcon } from "@/components/SocialIcons";
 import { INSTAGRAM_URL } from "@/lib/social";
 
 const steps = [
   {
-    icon: ClipboardList,
+    icon: Scan,
     title: "Inserisci targa e pochi dati",
     text: "Parti dalla targa, aggiungi km e qualche dettaglio. Puoi anche allegare delle foto.",
   },
   {
-    icon: PhoneCall,
+    icon: MessageSquare,
     title: "Ti ricontatto con una proposta",
     text: "Entro 24 ore ti chiamo o ti scrivo con una proposta di acquisto concreta.",
   },
   {
-    icon: Handshake,
+    icon: BadgeCheck,
     title: "Se accetti, mi occupo io di tutto",
     text: "Passaggi, documenti e ritiro: riduci al minimo i pensieri della vendita.",
   },
@@ -48,8 +48,8 @@ export function ComeFunziona() {
                     className="relative lg:flex lg:items-start lg:gap-4"
                   >
                     <div className="mb-3 flex items-center gap-3 lg:mb-0 lg:shrink-0">
-                      <span className="flex h-11 w-11 items-center justify-center rounded-full bg-black text-red">
-                        <Icon className="h-5 w-5" aria-hidden />
+                      <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-red text-white shadow-[0_8px_20px_rgba(200,16,46,0.28)]">
+                        <Icon className="h-5 w-5" strokeWidth={2.25} aria-hidden />
                       </span>
                       <span className="font-display text-sm font-bold tracking-wide text-red lg:hidden">
                         Passo {index + 1}
