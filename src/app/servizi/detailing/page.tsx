@@ -10,7 +10,7 @@ import { ServicePage } from "@/components/ServicePage";
 export const metadata: Metadata = {
   title: "Detailing auto | Borella Motors",
   description:
-    "Detailing per far tornare brillante e protetta la tua auto. Contattami a Treviso.",
+    "Detailing a partire da €130. Far tornare brillante e protetta la tua auto a Treviso.",
 };
 
 export default function DetailingPage() {
@@ -18,6 +18,7 @@ export default function DetailingPage() {
     <ServicePage
       eyebrow="Servizi · Detailing"
       title="Detailing e cura dell’auto"
+      priceFrom="€130"
       description="Trattamenti mirati per pulizia, profondità del colore e protezione: l’auto torna curata, senza esagerare con i passaggi inutili."
       image={{
         src: "/trust-handshake.jpg",

@@ -10,7 +10,7 @@ import { ServicePage } from "@/components/ServicePage";
 export const metadata: Metadata = {
   title: "Riparazione grandine | Borella Motors",
   description:
-    "Valuto i danni da grandine e ti propongo il ripristino più adatto. Contattami a Treviso.",
+    "Ripristino danni da grandine a partire da €100. Contattami a Treviso.",
 };
 
 export default function GrandinePage() {
@@ -18,6 +18,7 @@ export default function GrandinePage() {
     <ServicePage
       eyebrow="Servizi · Grandine"
       title="Ripristino danni da grandine"
+      priceFrom="€100"
       description="Dalla stima all’intervento: ti dico cosa serve davvero e come riportare la carrozzeria in ordine, senza sorprese."
       image={{
         src: "/hero-lot.jpg",

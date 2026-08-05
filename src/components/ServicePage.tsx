@@ -22,6 +22,7 @@ type ServicePageProps = {
   title: string;
   eyebrow: string;
   description: string;
+  priceFrom?: string;
   image: {
     src: string;
     alt: string;
@@ -35,6 +36,7 @@ export function ServicePage({
   title,
   eyebrow,
   description,
+  priceFrom,
   image,
   highlights,
   steps,
@@ -62,6 +64,14 @@ export function ServicePage({
             <h1 className="mt-4 text-4xl font-bold tracking-tight md:text-6xl">
               {title}
             </h1>
+            {priceFrom ? (
+              <p className="mt-6 font-display text-6xl font-bold leading-none tracking-tight text-red md:text-8xl lg:text-9xl">
+                <span className="mr-2 block text-sm font-semibold uppercase tracking-[0.18em] text-white/70 md:text-base">
+                  A partire da
+                </span>
+                {priceFrom}
+              </p>
+            ) : null}
             <p className="mt-5 max-w-2xl text-base text-white/85 md:text-lg">
               {description}
             </p>
