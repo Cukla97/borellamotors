@@ -279,6 +279,36 @@ p {
   transform: none;
 }
 
+.btn-siren {
+  animation: btn-siren 0.85s ease-in-out infinite;
+}
+
+.btn-siren:hover {
+  animation: none;
+}
+
+@keyframes btn-siren {
+  0%,
+  100% {
+    background: var(--red);
+    box-shadow:
+      0 0 0 0 color-mix(in oklab, var(--red) 0%, transparent),
+      0 0 0 0 rgba(255, 255, 255, 0);
+  }
+  35% {
+    background: #ff2a45;
+    box-shadow:
+      0 0 22px 4px color-mix(in oklab, var(--red) 70%, transparent),
+      0 0 40px 8px color-mix(in oklab, #ff6b00 35%, transparent);
+  }
+  70% {
+    background: var(--red-hover);
+    box-shadow:
+      0 0 10px 2px color-mix(in oklab, var(--red) 40%, transparent),
+      0 0 0 0 rgba(255, 255, 255, 0);
+  }
+}
+
 .btn-secondary {
   display: inline-flex;
   align-items: center;
@@ -353,6 +383,7 @@ p {
   left: 0;
   bottom: 0;
   z-index: 1;
+  display: block;
   width: 3.6rem;
   height: auto;
   color: var(--red);
@@ -365,6 +396,69 @@ p {
   .hero-title-car {
     width: 4.4rem;
   }
+}
+
+.hero-car-exhaust {
+  position: absolute;
+  left: -0.15rem;
+  bottom: 0.35rem;
+  width: 1.4rem;
+  height: 1.1rem;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.hero-car-puff {
+  position: absolute;
+  right: 0;
+  bottom: 0.15rem;
+  border-radius: 999px;
+  opacity: 0;
+  transform-origin: right center;
+  filter: blur(0.5px);
+}
+
+.hero-car-puff--fire {
+  width: 0.7rem;
+  height: 0.45rem;
+  background: radial-gradient(
+    circle,
+    #ffb347 0%,
+    var(--red) 55%,
+    transparent 75%
+  );
+  animation: hero-car-fire 0.35s ease-out infinite;
+}
+
+.hero-car-puff--ember {
+  width: 0.55rem;
+  height: 0.35rem;
+  bottom: 0.05rem;
+  background: radial-gradient(circle, #fff3 0%, var(--red) 40%, transparent 70%);
+  animation: hero-car-fire 0.45s ease-out 0.12s infinite;
+}
+
+.hero-car-puff--smoke,
+.hero-car-puff--smoke-2 {
+  width: 0.85rem;
+  height: 0.55rem;
+  background: radial-gradient(
+    circle,
+    rgba(180, 180, 180, 0.75) 0%,
+    rgba(80, 80, 80, 0.35) 45%,
+    transparent 72%
+  );
+}
+
+.hero-car-puff--smoke {
+  animation: hero-car-smoke 0.7s ease-out infinite;
+}
+
+.hero-car-puff--smoke-2 {
+  width: 1rem;
+  height: 0.65rem;
+  bottom: 0;
+  animation: hero-car-smoke 0.85s ease-out 0.2s infinite;
 }
 
 @keyframes hero-car-drive {
@@ -383,6 +477,31 @@ p {
     left: 100%;
     transform: translateX(8%);
     opacity: 0;
+  }
+}
+
+@keyframes hero-car-fire {
+  0% {
+    opacity: 0.95;
+    transform: translateX(0) scale(0.7);
+  }
+  70% {
+    opacity: 0.55;
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(-0.85rem) scale(1.35);
+  }
+}
+
+@keyframes hero-car-smoke {
+  0% {
+    opacity: 0.7;
+    transform: translateX(0) translateY(0) scale(0.55);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(-1.35rem) translateY(-0.35rem) scale(1.7);
   }
 }
 

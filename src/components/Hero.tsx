@@ -31,11 +31,17 @@ export function Hero() {
               </span>
             </h1>
             <span className="hero-title-car" aria-hidden="true">
+              <span className="hero-car-exhaust">
+                <span className="hero-car-puff hero-car-puff--fire" />
+                <span className="hero-car-puff hero-car-puff--ember" />
+                <span className="hero-car-puff hero-car-puff--smoke" />
+                <span className="hero-car-puff hero-car-puff--smoke-2" />
+              </span>
               <svg
                 viewBox="0 0 96 36"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
-                className="h-full w-full"
+                className="relative z-[1] h-full w-full"
               >
                 {/* Sleek sports-car silhouette */}
                 <path
@@ -96,7 +102,7 @@ export function Hero() {
             a tutto il resto.
           </p>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-            <a href="#valutazione" className="btn-primary">
+            <a href="#valutazione" className="btn-primary btn-siren">
               Richiedi una valutazione gratuita
             </a>
             <a
