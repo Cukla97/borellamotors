@@ -56,13 +56,13 @@ export function ComeFunziona() {
                       </span>
                     </div>
                     <div>
-                      <span className="mb-1 hidden font-display text-sm font-bold tracking-wide text-red lg:inline">
+                      <span className="hidden font-display text-sm/snug font-bold tracking-wide text-red lg:block">
                         Passo {index + 1}
                       </span>
-                      <h3 className="text-xl font-bold text-ink">
+                      <h3 className="text-xl/snug font-bold text-ink">
                         {step.title}
                       </h3>
-                      <p className="mt-1.5 text-muted">{step.text}</p>
+                      <p className="text-base/relaxed text-muted">{step.text}</p>
                     </div>
                   </li>
                 );

@@ -156,19 +156,22 @@ p {
 .section-wash-signal::before {
   background:
     radial-gradient(
-      80% 55% at 15% 0%,
-      color-mix(in oklab, var(--red) 18%, transparent),
-      transparent 65%
+      circle at center,
+      transparent 65%,
+      color-mix(in oklab, var(--red) 5%, transparent) 85%,
+      color-mix(in oklab, var(--red) 5%, transparent)
     ),
     radial-gradient(
-      55% 45% at 85% 40%,
-      color-mix(in oklab, var(--black) 5%, transparent),
-      transparent 70%
+      circle at center,
+      transparent 50%,
+      color-mix(in oklab, var(--black) 5%, transparent) 75%,
+      color-mix(in oklab, var(--black) 5%, transparent)
     ),
     radial-gradient(
-      50% 40% at 40% 100%,
-      color-mix(in oklab, var(--red) 8%, transparent),
-      transparent 70%
+      circle at center,
+      transparent 70%,
+      color-mix(in oklab, var(--red) 8%, transparent) 95%,
+      color-mix(in oklab, var(--red) 8%, transparent)
     ),
     white;
 }
@@ -280,7 +283,7 @@ p {
 }
 
 .btn-siren {
-  animation: btn-siren 0.85s ease-in-out infinite;
+  animation: btn-siren 2s ease-in-out infinite;
 }
 
 .btn-siren:hover {
@@ -290,19 +293,16 @@ p {
 @keyframes btn-siren {
   0%,
   100% {
-    background: var(--red);
     box-shadow:
       0 0 0 0 color-mix(in oklab, var(--red) 0%, transparent),
       0 0 0 0 rgba(255, 255, 255, 0);
   }
   35% {
-    background: #ff2a45;
     box-shadow:
-      0 0 22px 4px color-mix(in oklab, var(--red) 70%, transparent),
-      0 0 40px 8px color-mix(in oklab, #ff6b00 35%, transparent);
+      0 0 12px 3px color-mix(in oklab, var(--red) 70%, transparent),
+      0 0 32px 4px color-mix(in oklab, #ff6b00 35%, transparent);
   }
   70% {
-    background: var(--red-hover);
     box-shadow:
       0 0 10px 2px color-mix(in oklab, var(--red) 40%, transparent),
       0 0 0 0 rgba(255, 255, 255, 0);
