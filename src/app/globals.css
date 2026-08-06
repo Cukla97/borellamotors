@@ -365,6 +365,7 @@ p {
   display: inline-block;
   color: var(--red);
   transform-origin: center bottom;
+  will-change: transform;
   animation: word-blink 1.1s ease-in-out infinite;
 }
 
