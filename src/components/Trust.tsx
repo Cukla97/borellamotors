@@ -48,12 +48,12 @@ export function Trust() {
             })}
           </ul>
         </div>
-        <div className="relative aspect-[4/3] overflow-hidden rounded-xl">
+        <div className="relative aspect-[16/9] w-full overflow-hidden rounded-xl">
           <Image
-            src="/trust-handshake.jpg"
-            alt="Momento di accordo tra cliente e rivenditore"
+            src="/audi-project.jpg"
+            alt="Audi R8 Spyder rossa"
             fill
-            className="object-cover"
+            className="object-cover object-center"
             sizes="(max-width: 768px) 100vw, 50vw"
           />
         </div>

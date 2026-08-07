@@ -17,8 +17,8 @@ export function Hero() {
       <div className="absolute inset-0 bg-gradient-to-r from-black-deep/90 via-black/75 to-black/40" />
       <div className="absolute inset-0 bg-gradient-to-t from-black-deep/70 via-transparent to-black-deep/30" />
 
-      <div className="site-container relative z-10 flex min-h-[100svh] flex-col justify-end pb-16 pt-28 md:justify-center md:pb-24 md:pt-32">
-        <div className="max-w-2xl">
+      <div className="site-container relative z-10 flex min-h-[100svh] flex-col justify-end gap-10 pb-16 pt-28 md:justify-center md:gap-12 md:pb-24 md:pt-32 lg:flex-row lg:items-center lg:gap-14 xl:gap-20">
+        <div className="max-w-2xl shrink-0 lg:flex-1">
           <p className="mb-4 text-sm font-semibold uppercase tracking-[0.18em] text-red">
             Borella Motors
           </p>
@@ -124,6 +124,24 @@ export function Hero() {
               <ChevronDown className="h-4 w-4" aria-hidden />
             </a>
           </p>
+        </div>
+
+        <div className="hero-owner relative mx-auto w-full max-w-[280px] shrink-0 sm:max-w-[320px] lg:mx-0 lg:max-w-[380px] xl:max-w-[420px]">
+          <div className="relative aspect-[4/5] overflow-hidden">
+            <Image
+              src="/owner-placeholder.svg"
+              alt="Foto del titolare Borella Motors"
+              fill
+              sizes="(max-width: 1024px) 320px, 420px"
+              className="object-cover object-top"
+              priority
+              unoptimized
+            />
+            <div
+              className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black-deep via-transparent to-transparent"
+              aria-hidden
+            />
+          </div>
         </div>
       </div>
     </section>

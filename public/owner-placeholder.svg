@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="800" viewBox="0 0 640 800" role="img" aria-label="Placeholder foto titolare">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#2a2a2a"/>
+      <stop offset="100%" stop-color="#111111"/>
+    </linearGradient>
+  </defs>
+  <rect width="640" height="800" fill="url(#bg)"/>
+  <circle cx="320" cy="280" r="110" fill="#3a3a3a"/>
+  <path d="M140 720c20-150 90-230 180-230s160 80 180 230" fill="#3a3a3a"/>
+  <text x="320" y="760" text-anchor="middle" fill="#c41e1e" font-family="Arial, sans-serif" font-size="22" font-weight="700" letter-spacing="4">FOTO TITOLARE</text>
+</svg>
