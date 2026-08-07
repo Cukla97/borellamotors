@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Barlow_Condensed, Source_Sans_3 } from "next/font/google";
 import { CookieBanner } from "@/components/CookieBanner";
+import { VercelAnalytics } from "@/components/VercelAnalytics";
 import "./globals.css";
 
 const display = Barlow_Condensed({
@@ -57,6 +58,7 @@ export default function RootLayout({
         />
         {children}
         <CookieBanner />
+        <VercelAnalytics />
       </body>
     </html>
   );
