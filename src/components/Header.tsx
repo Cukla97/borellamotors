@@ -60,10 +60,10 @@ export function Header() {
           <Image
             src="/logo-borellamotors.png"
             alt="Borella Motors"
-            width={220}
-            height={86}
+            width={280}
+            height={110}
             priority
-            className="h-10 w-auto brightness-0 invert md:h-11"
+            className="h-12 w-auto md:h-14"
           />
         </Link>
 

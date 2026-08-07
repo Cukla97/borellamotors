@@ -15,7 +15,7 @@ export function Footer() {
             alt="Borella Motors"
             width={180}
             height={70}
-            className="h-10 w-auto brightness-0 invert"
+            className="h-10 w-auto"
           />
           <p className="mt-4 max-w-sm text-sm text-white/70">
             Valutazione gratuita della tua auto usata. Se accetti, gestisco io i
