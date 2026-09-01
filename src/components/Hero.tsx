@@ -129,13 +129,12 @@ export function Hero() {
         <div className="hero-owner relative mx-auto w-full max-w-[280px] shrink-0 sm:max-w-[320px] lg:mx-0 lg:max-w-[380px] xl:max-w-[420px]">
           <div className="relative aspect-[4/5] overflow-hidden">
             <Image
-              src="/owner-placeholder.svg"
-              alt="Foto del titolare Borella Motors"
+              src="/personal-hero-image.png"
+              alt="Niccolò Borella, titolare di Borella Motors"
               fill
               sizes="(max-width: 1024px) 320px, 420px"
-              className="object-cover object-top"
+              className="object-cover object-[center_12%]"
               priority
-              unoptimized
             />
             <div
               className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black-deep via-transparent to-transparent"

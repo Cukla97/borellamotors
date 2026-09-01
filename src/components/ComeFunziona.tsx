@@ -1,4 +1,5 @@
-import { BadgeCheck, MessageSquare, Play, Scan } from "lucide-react";
+import { BadgeCheck, MessageSquare, Scan } from "lucide-react";
+import { ComeFunzionaStory } from "@/components/ComeFunzionaStory";
 import { InstagramIcon } from "@/components/SocialIcons";
 import { INSTAGRAM_URL } from "@/lib/social";
 
@@ -70,53 +71,9 @@ export function ComeFunziona() {
             </ol>
           </div>
 
-          {/* Right: Stories video placeholder */}
+          {/* Right: Stories video */}
           <div className="order-1 mx-auto w-full max-w-[280px] lg:order-2 lg:mx-0 lg:max-w-none">
-            <div className="relative aspect-[9/16] overflow-hidden rounded-[1.75rem] bg-black shadow-[0_20px_50px_rgba(0,0,0,0.28)] ring-1 ring-black/10">
-              <div
-                className="absolute inset-x-3 top-3 z-10 flex gap-1"
-                aria-hidden
-              >
-                <span className="h-0.5 flex-1 rounded-full bg-white/90" />
-                <span className="h-0.5 flex-1 rounded-full bg-white/35" />
-                <span className="h-0.5 flex-1 rounded-full bg-white/35" />
-              </div>
-
-              {/*
-                Replace this placeholder with the spoken Stories video, e.g.:
-                <video
-                  className="absolute inset-0 h-full w-full object-cover"
-                  src="/videos/come-funziona-story.mp4"
-                  poster="/videos/come-funziona-story.jpg"
-                  controls
-                  playsInline
-                  preload="metadata"
-                />
-              */}
-              <div className="absolute inset-0 bg-gradient-to-b from-black/35 via-transparent to-black/70" />
-              <div className="absolute inset-0 flex flex-col items-center justify-center gap-4 px-6 text-center text-white">
-                <span className="flex h-16 w-16 items-center justify-center rounded-full bg-red text-white shadow-lg">
-                  <Play className="ml-0.5 h-7 w-7 fill-current" aria-hidden />
-                </span>
-                <div>
-                  <p className="font-display text-lg font-bold tracking-tight">
-                    Video in arrivo
-                  </p>
-                  <p className="mt-1 text-sm text-white/75">
-                    Spiegazione parlata in formato Stories
-                  </p>
-                </div>
-              </div>
-
-              <div className="absolute inset-x-0 bottom-0 z-10 px-4 pb-5 pt-10">
-                <p className="text-xs font-semibold uppercase tracking-[0.16em] text-white/70">
-                  Borella Motors
-                </p>
-                <p className="mt-1 text-sm font-semibold text-white">
-                  Come funziona, in 30 secondi
-                </p>
-              </div>
-            </div>
+            <ComeFunzionaStory />
             <a
               href={INSTAGRAM_URL}
               target="_blank"
