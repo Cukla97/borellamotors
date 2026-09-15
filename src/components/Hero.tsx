@@ -96,10 +96,10 @@ export function Hero() {
           aria-hidden
         />
 
+        <h1 ref={wordmarkRef} className="hero-wordmark">
+          Vuoi vendere la tua auto?
+        </h1>
         <div className="hero-person">
-          <h1 ref={wordmarkRef} className="hero-wordmark">
-            Vuoi vendere la tua auto?
-          </h1>
           <Image
             ref={personImgRef}
             src="/foto-niik.png"

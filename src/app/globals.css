@@ -40,6 +40,17 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: var(--header-h);
+}
+
+:root {
+  --header-h: 4.75rem;
+}
+
+@media (min-width: 768px) {
+  :root {
+    --header-h: 5.6rem;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -392,22 +403,24 @@ p {
   padding: 5rem 0 min(17rem, 32svh);
 }
 
-/* The wordmark lives inside the subject's box, so its position stays a fixed
-   share of his height at every viewport. Phones stack it above his head in two
-   lines; from md up it runs edge to edge on one line and he stands in front. */
+/* Phones stack the line above his head, always below the bar. From md up it
+   runs edge to edge on one line and he stands in front. */
 .hero-wordmark {
   position: absolute;
   left: 50%;
-  /* Overlap tied to the type size, so the hair grazes the text at any width. */
-  bottom: calc(100% - 0.42em);
-  z-index: -1;
+  /* As close to his hair as the stage allows, never under the fixed bar. */
+  top: max(
+    calc(var(--header-h) + 0.35rem),
+    calc(100% - min(17rem, 32svh) - var(--person-h) - 6.7rem)
+  );
+  z-index: 2;
   width: 92vw;
   margin: 0;
-  transform: translateX(-50%);
+  translate: -50% 0;
   font-family: var(--font-display), system-ui, sans-serif;
   font-style: italic;
   font-weight: 800;
-  font-size: min(16vw, 18svh);
+  font-size: min(15vw, 7.25rem);
   line-height: 0.92;
   letter-spacing: 0.015em;
   color: var(--red);
@@ -504,7 +517,8 @@ p {
   .hero-wordmark {
     /* Crosses him at eye-to-chin height: his head is the narrowest occluder,
        so far less of the line disappears behind him than at shoulder height. */
-    bottom: calc(75% - 0.46em);
+    top: auto;
+    bottom: calc(12.5rem + var(--person-h) * 0.75 - 0.46em);
     width: 100vw;
     font-size: 9.7vw;
     white-space: nowrap;

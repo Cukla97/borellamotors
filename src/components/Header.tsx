@@ -1,12 +1,12 @@
 "use client";
 
-import { useEffect, useId, useRef, useState } from "react";
+import { useEffect, useId, useLayoutEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { ChevronDown, Menu, X } from "lucide-react";
 import { SERVICES } from "@/lib/services";
-import { WHATSAPP_LABEL, WHATSAPP_URL } from "@/lib/whatsapp";
+import { WHATSAPP_URL } from "@/lib/whatsapp";
 import { WhatsAppIcon } from "@/components/WhatsAppIcon";
 import { SocialLinks } from "@/components/SocialLinks";
 
@@ -14,7 +14,11 @@ export function Header({ tone = "dark" }: { tone?: "dark" | "light" }) {
   const pathname = usePathname();
   const [servicesOpen, setServicesOpen] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [hideBarSocials, setHideBarSocials] = useState(false);
   const servicesRef = useRef<HTMLDivElement>(null);
+  const barRef = useRef<HTMLDivElement>(null);
+  const barSocialsRef = useRef<HTMLDivElement>(null);
+  const valutaRef = useRef<HTMLAnchorElement>(null);
   const servicesMenuId = useId();
   const light = tone === "light";
 
@@ -33,6 +37,40 @@ export function Header({ tone = "dark" }: { tone?: "dark" | "light" }) {
       document.body.style.overflow = previous;
     };
   }, [mobileOpen]);
+
+  useLayoutEffect(() => {
+    const bar = barRef.current;
+    const socials = barSocialsRef.current;
+    const cta = valutaRef.current;
+    if (!bar || !socials || !cta) return;
+
+    const desktop = window.matchMedia("(min-width: 768px)");
+
+    const measure = () => {
+      if (desktop.matches) {
+        setHideBarSocials(false);
+        return;
+      }
+
+      socials.classList.remove("hidden");
+      socials.classList.add("flex");
+      const ctaWraps = cta.getBoundingClientRect().height > 42;
+      const overflows = bar.scrollWidth > bar.clientWidth + 1;
+      const hide = ctaWraps || overflows;
+      socials.classList.toggle("hidden", hide);
+      socials.classList.toggle("flex", !hide);
+      setHideBarSocials((prev) => (prev === hide ? prev : hide));
+    };
+
+    measure();
+    const observer = new ResizeObserver(measure);
+    observer.observe(bar);
+    desktop.addEventListener("change", measure);
+    return () => {
+      observer.disconnect();
+      desktop.removeEventListener("change", measure);
+    };
+  }, []);
 
   useEffect(() => {
     const onPointerDown = (event: MouseEvent) => {
@@ -62,8 +100,11 @@ export function Header({ tone = "dark" }: { tone?: "dark" | "light" }) {
           : "fixed inset-x-0 top-0 z-40 border-b border-white/10 bg-black/45 backdrop-blur-xl"
       }
     >
-      <div className="site-container flex items-center justify-between gap-4 py-3 md:py-4">
-        <Link href="/" aria-label="Borella Motors - Home">
+      <div
+        ref={barRef}
+        className="site-container flex min-w-0 flex-nowrap items-center justify-between gap-3 overflow-x-clip py-3 md:gap-4 md:py-4"
+      >
+        <Link href="/" aria-label="Borella Motors - Home" className="shrink-0">
           <Image
             src="/logo-borellamotors.png"
             alt="Borella Motors"
@@ -152,19 +193,29 @@ export function Header({ tone = "dark" }: { tone?: "dark" | "light" }) {
           />
         </nav>
 
-        <div className="flex items-center gap-2">
-          <SocialLinks
-            className="flex items-center gap-0.5 md:hidden"
-            linkClassName={
-              light
-                ? "inline-flex h-9 w-9 items-center justify-center rounded-lg text-ink transition hover:bg-black/5"
-                : "inline-flex h-9 w-9 items-center justify-center rounded-lg text-white transition hover:bg-white/10"
+        <div className="flex shrink-0 items-center gap-1.5 sm:gap-2">
+          <div
+            ref={barSocialsRef}
+            className={
+              hideBarSocials
+                ? "hidden"
+                : "flex items-center gap-0.5 md:hidden"
             }
-            iconClassName="h-[18px] w-[18px]"
-          />
+          >
+            <SocialLinks
+              className="flex items-center gap-0.5"
+              linkClassName={
+                light
+                  ? "inline-flex h-9 w-9 items-center justify-center rounded-lg text-ink transition hover:bg-black/5"
+                  : "inline-flex h-9 w-9 items-center justify-center rounded-lg text-white transition hover:bg-white/10"
+              }
+              iconClassName="h-[18px] w-[18px]"
+            />
+          </div>
           <a
+            ref={valutaRef}
             href={valutaHref}
-            className="btn-primary !py-2.5 !px-4 text-sm"
+            className="btn-primary !px-3.5 !py-2.5 text-sm whitespace-nowrap sm:!px-4"
           >
             Valuta ora
           </a>
@@ -225,13 +276,22 @@ export function Header({ tone = "dark" }: { tone?: "dark" | "light" }) {
                 {service.label}
               </Link>
             ))}
+            <p
+              className={
+                light
+                  ? "mt-3 px-1 pb-2 text-xs font-semibold uppercase tracking-[0.16em] text-muted"
+                  : "mt-3 px-1 pb-2 text-xs font-semibold uppercase tracking-[0.16em] text-white/50"
+              }
+            >
+              Social
+            </p>
             <SocialLinks
-              className="mt-2 flex flex-col gap-1"
+              className="flex flex-col gap-1"
               showLabels
               linkClassName={
                 light
-                  ? "inline-flex items-center gap-2 rounded-lg px-3 py-3 font-semibold text-ink transition hover:bg-black/5"
-                  : "inline-flex items-center gap-2 rounded-lg px-3 py-3 font-semibold text-white transition hover:bg-white/10"
+                  ? "inline-flex min-h-11 items-center gap-2 rounded-lg px-3 py-3 font-semibold text-ink transition hover:bg-black/5"
+                  : "inline-flex min-h-11 items-center gap-2 rounded-lg px-3 py-3 font-semibold text-white transition hover:bg-white/10"
               }
               iconClassName="h-5 w-5"
             />
@@ -239,11 +299,15 @@ export function Header({ tone = "dark" }: { tone?: "dark" | "light" }) {
               href={WHATSAPP_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-lg px-3 py-3 font-semibold text-whatsapp"
+              className={
+                light
+                  ? "inline-flex min-h-11 items-center gap-2 rounded-lg px-3 py-3 font-semibold text-ink transition hover:bg-black/5"
+                  : "inline-flex min-h-11 items-center gap-2 rounded-lg px-3 py-3 font-semibold text-white transition hover:bg-white/10"
+              }
               onClick={() => setMobileOpen(false)}
             >
-              <WhatsAppIcon className="h-5 w-5" />
-              {WHATSAPP_LABEL}
+              <WhatsAppIcon className="h-5 w-5 text-whatsapp" />
+              WhatsApp
             </a>
           </nav>
         </div>
