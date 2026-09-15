@@ -4,11 +4,30 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { CheckCircle2, Loader2, Upload, X } from "lucide-react";
+import { CheckCircle2, CircleGauge, Clock, Loader2, TriangleAlert, Upload, X } from "lucide-react";
 import {
   valutazioneSchema,
   type ValutazioneFormData,
 } from "@/lib/schema";
+import { CtaProof } from "@/components/CtaProof";
+
+function IconPlate({ className }: { className?: string }) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={className}
+    >
+      <rect x="2" y="7" width="20" height="10" rx="2" />
+      <path d="M5 7v10" />
+      <path d="M8.5 10.5h3M13.5 10.5h3M8.5 13.5h8" />
+    </svg>
+  );
+}
 
 const STEPS = [
   { id: 1, label: "Dati veicolo" },
@@ -124,15 +143,18 @@ export function FormValutazione() {
       className="section-wash section-wash-signal py-16 md:py-24"
     >
       <div className="site-container">
-        <div className="max-w-2xl">
-          <h2 className="inline-block border-b-4 border-red pb-2 text-3xl font-bold tracking-tight text-black md:text-4xl">
-            Richiedi una valutazione{" "}
-            <span className="word-blink">gratuita</span>
-          </h2>
-          <p className="mt-3 text-muted">
-            Tre passi veloci: dati dell&apos;auto, foto e contatti.
-          </p>
-        </div>
+        <div className="valutazione-sheet">
+          <span className="lot-sticker lot-sticker--sheet-free" aria-hidden>
+            Gratis
+          </span>
+          <div className="valutazione-sheet-head">
+            <h2 className="valutazione-sheet-title">
+              Richiedi una valutazione <em>gratuita</em>
+            </h2>
+            <p className="valutazione-sheet-lead">
+              Tre passi veloci: dati dell&apos;auto, foto e contatti.
+            </p>
+          </div>
 
         <ol className="mt-8 flex flex-wrap gap-2 sm:gap-3" aria-label="Passaggi form">
           {STEPS.map((item) => {
@@ -183,7 +205,10 @@ export function FormValutazione() {
               </legend>
               <div className="grid gap-3 sm:grid-cols-2">
                 <div className="field">
-                  <label htmlFor="targa">Targa *</label>
+                  <label htmlFor="targa">
+                    <IconPlate className="field-ico" aria-hidden />
+                    Targa *
+                  </label>
                   <input
                     id="targa"
                     placeholder="es. AB123CD"
@@ -196,7 +221,10 @@ export function FormValutazione() {
                   )}
                 </div>
                 <div className="field">
-                  <label htmlFor="chilometraggio">Chilometraggio *</label>
+                  <label htmlFor="chilometraggio">
+                    <CircleGauge className="field-ico" aria-hidden />
+                    Chilometraggio *
+                  </label>
                   <input
                     id="chilometraggio"
                     type="number"
@@ -211,6 +239,7 @@ export function FormValutazione() {
                 </div>
                 <div className="field">
                   <label htmlFor="tempistiche">
+                    <Clock className="field-ico" aria-hidden />
                     In quanto vuoi venderla? *
                   </label>
                   <select id="tempistiche" {...register("tempistiche")}>
@@ -225,7 +254,10 @@ export function FormValutazione() {
                   )}
                 </div>
                 <div className="field">
-                  <label htmlFor="incidenti">Incidenti pregressi *</label>
+                  <label htmlFor="incidenti">
+                    <TriangleAlert className="field-ico" aria-hidden />
+                    Incidenti pregressi *
+                  </label>
                   <select id="incidenti" {...register("incidenti")}>
                     <option value="No">No</option>
                     <option value="Si">Sì</option>
@@ -444,7 +476,9 @@ export function FormValutazione() {
               </button>
             )}
           </div>
+          <CtaProof />
         </form>
+        </div>
       </div>
     </section>
   );

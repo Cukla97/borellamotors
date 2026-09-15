@@ -229,9 +229,19 @@ p {
 }
 
 .field label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
   font-size: 0.875rem;
   font-weight: 600;
   color: var(--ink);
+}
+
+.field-ico {
+  width: 1.15rem;
+  height: 1.15rem;
+  flex-shrink: 0;
+  color: var(--red);
 }
 
 .field input,
@@ -567,6 +577,104 @@ p {
   }
 }
 
+.valutazione-sheet {
+  position: relative;
+  max-width: 44rem;
+  margin-inline: auto;
+  padding: 1.85rem 1.25rem 1.5rem;
+  background: #fff;
+  border-top: 7px solid var(--red);
+  box-shadow:
+    0 18px 40px rgba(17, 17, 17, 0.12),
+    0 2px 0 rgba(17, 17, 17, 0.06);
+}
+
+.valutazione-sheet-head {
+  padding-right: 4.5rem;
+}
+
+.valutazione-sheet-title {
+  margin: 0;
+  font-family: var(--font-display), system-ui, sans-serif;
+  font-style: italic;
+  font-weight: 800;
+  font-size: clamp(1.85rem, 5vw, 3.05rem);
+  line-height: 0.95;
+  letter-spacing: 0.01em;
+  color: var(--black);
+  text-wrap: balance;
+}
+
+.valutazione-sheet-lead {
+  margin: 0.7rem 0 0;
+  max-width: 34rem;
+  font-size: 1.02rem;
+  line-height: 1.45;
+  color: color-mix(in oklab, var(--ink) 72%, white);
+}
+
+.cta-proof {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.28rem;
+  margin: 0.85rem 0 0;
+}
+
+.cta-proof-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.7rem;
+}
+
+.cta-proof-faces {
+  display: flex;
+  align-items: center;
+}
+
+.cta-proof-face {
+  display: block;
+  width: 2.05rem;
+  height: 2.05rem;
+  margin-left: -0.5rem;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  box-shadow: 0 6px 12px rgba(17, 17, 17, 0.16);
+  background: #fff;
+}
+
+.cta-proof-face:first-child {
+  margin-left: 0;
+}
+
+.cta-proof-stars {
+  display: flex;
+  gap: 0.08rem;
+  color: var(--red);
+}
+
+.cta-proof-star {
+  width: 0.92rem;
+  height: 0.92rem;
+}
+
+.cta-proof-label {
+  font-size: 0.88rem;
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--ink);
+}
+
+.form-compact .cta-proof {
+  margin-top: 1rem;
+}
+
+.valutazione-sheet-title em {
+  font-style: italic;
+  color: var(--red);
+}
+
 /* Lot stickers — windshield / courtyard labels, not UI chrome */
 .lot-sticker {
   display: inline-flex;
@@ -625,6 +733,36 @@ p {
   color: #fff;
   background: var(--red);
   transform: rotate(-8deg);
+}
+
+.lot-sticker--sheet-free {
+  position: absolute;
+  top: 0.85rem;
+  right: 1rem;
+  z-index: 2;
+  padding: 0.48rem 0.82rem 0.38rem;
+  color: #fff;
+  background: var(--red);
+  box-shadow: 0 12px 22px rgba(200, 16, 46, 0.4);
+  transform: rotate(9deg);
+  font-size: 1.2rem;
+}
+
+@media (min-width: 768px) {
+  .valutazione-sheet {
+    padding: 2.4rem 2.6rem 2rem;
+  }
+
+  .valutazione-sheet-head {
+    padding-right: 5.5rem;
+  }
+
+  .lot-sticker--sheet-free {
+    top: 1rem;
+    right: 1.6rem;
+    padding: 0.55rem 0.95rem 0.42rem;
+    font-size: 1.4rem;
+  }
 }
 
 .lot-sticker--hours {
