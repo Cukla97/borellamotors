@@ -36,7 +36,7 @@ export function Hero() {
       const focusX = personBox.left + personBox.width / 2;
       const cars = [carLeft, carRight];
 
-      gsap.set(wordmark, { opacity: 0, y: 16, filter: "blur(8px)" });
+      gsap.set(wordmark, { opacity: 0, scale: 0.9, filter: "blur(8px)" });
       gsap.set(person, { opacity: 0, y: 64 });
       gsap.set(cars, {
         autoAlpha: 0,
@@ -47,25 +47,23 @@ export function Hero() {
 
       tl.to(wordmark, {
         opacity: 1,
-        y: 0,
+        scale: 1,
         filter: "blur(0px)",
-        duration: 0.7,
-        ease: "power2.out",
+        duration: 0.5,
+        ease: "power1.out"
       })
         .to(person, {
           opacity: 1,
           y: 0,
-          duration: 0.75,
-        })
-        .set(cars, { autoAlpha: 1 }, ">-0.2")
+        }, '<+=0.2')
         .to(
           cars,
           {
+            autoAlpha: 1,
             x: 0,
-            duration: 1.15,
-            ease: "power3.out",
+            ease: "power2.out",
           },
-          "<",
+          "<+=0.5",
         );
     }, root);
 
