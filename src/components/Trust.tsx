@@ -1,3 +1,5 @@
+import { ScribbleArrow } from "@/components/ScribbleArrow";
+
 function IconTag({ className }: { className?: string }) {
   return (
     <svg
@@ -71,26 +73,58 @@ function IconKeys({ className }: { className?: string }) {
   );
 }
 
+function LotSticker({
+  children,
+  variant,
+  className,
+}: {
+  children: string;
+  variant: "vendesi" | "sold" | "free" | "hours" | "local" | "keys";
+  className?: string;
+}) {
+  return (
+    <span
+      className={["lot-sticker", `lot-sticker--${variant}`, className]
+        .filter(Boolean)
+        .join(" ")}
+      aria-hidden
+    >
+      {children}
+    </span>
+  );
+}
+
 const commitments = [
   {
     title: "Valutazione gratuita",
     text: "Nessun costo e nessun impegno: ricevi una proposta e decidi con calma.",
     icon: IconTag,
+    sticker: "Gratis",
+    stickerVariant: "free" as const,
+    mobileArrow: "down" as const,
   },
   {
     title: "Risposta in 24 ore",
     text: "Ti ricontatto rapidamente con una stima seria e trasparente.",
     icon: IconReply,
+    sticker: "24h",
+    stickerVariant: "hours" as const,
+    mobileArrow: "downSwoop" as const,
   },
   {
     title: "Parli con me",
     text: "Rivenditore locale a Treviso, non un portale anonimo.",
     icon: IconLocal,
+    sticker: "Con me",
+    stickerVariant: "local" as const,
+    mobileArrow: "down" as const,
   },
   {
     title: "Se accetti, penso io a tutto",
     text: "Passaggi, documenti e ritiro: riduci i pensieri della vendita.",
     icon: IconKeys,
+    sticker: "Fatta",
+    stickerVariant: "keys" as const,
   },
 ] as const;
 
@@ -100,40 +134,66 @@ export function Trust() {
       id="impegni"
       className="section-wash section-wash-garage py-16 text-white md:py-24"
     >
-      <div className="site-container grid items-start gap-10 min-[900px]:grid-cols-2 min-[900px]:gap-14">
-        <div>
-          <h2 className="text-3xl font-bold tracking-tight md:text-4xl">
-            Un passaggio concreto, senza pressione
-          </h2>
-          <p className="mt-3 max-w-xl text-[1.05rem]/[1.55] text-white/80">
-            Ti aiuto a vendere l&apos;auto con un processo chiaro: dati,
-            proposta, vendita. Niente countdown e niente trucchi.
-          </p>
+      <div className="site-container">
+        <div className="trust-heading">
+          <div className="trust-heading-copy">
+            <h2 className="text-3xl font-bold tracking-tight md:text-4xl">
+              Un passaggio concreto, senza pressione
+            </h2>
+            <p className="mt-3 max-w-xl text-[1.05rem]/[1.55] text-white/80">
+              Ti aiuto a vendere l&apos;auto con un processo chiaro: dati,
+              proposta, vendita. Niente countdown e niente trucchi.
+            </p>
+          </div>
+          <div className="trust-heading-stickers">
+            <LotSticker variant="vendesi">Vendesi</LotSticker>
+            <LotSticker variant="sold">Sold out</LotSticker>
+          </div>
         </div>
-        <ul
-          className="grid gap-5 min-[900px]:gap-[1.35rem]"
-          aria-label="Impegni di Niccolò"
-        >
-          {commitments.map((item) => {
+
+        <ol className="trust-flow" aria-label="Impegni di Niccolò">
+          {commitments.map((item, index) => {
             const Icon = item.icon;
+            const isLast = index === commitments.length - 1;
+
             return (
-              <li key={item.title} className="flex items-start gap-4">
-                <span
-                  className="mt-0.5 grid size-10 shrink-0 place-items-center rounded-full bg-red text-white shadow-[0_8px_20px_rgba(200,16,46,0.28)]"
-                  aria-hidden="true"
+              <li key={item.title} className="trust-step">
+                <LotSticker
+                  variant={item.stickerVariant}
+                  className="trust-step-sticker"
                 >
-                  <Icon className="size-[1.15rem]" />
-                </span>
-                <div>
-                  <h3 className="text-[1.05rem] font-bold">{item.title}</h3>
-                  <p className="mt-1 text-[0.9rem]/[1.45] text-white/75">
-                    {item.text}
-                  </p>
+                  {item.sticker}
+                </LotSticker>
+                <div className="flex items-start gap-4 min-[1100px]:flex-col min-[1100px]:gap-3">
+                  <span
+                    className="relative mt-0.5 grid size-10 shrink-0 place-items-center rounded-full bg-red text-white shadow-[0_8px_20px_rgba(200,16,46,0.28)]"
+                    aria-hidden="true"
+                  >
+                    <Icon className="size-[1.15rem]" />
+                  </span>
+                  <div>
+                    <h3 className="text-[1.05rem] font-bold">{item.title}</h3>
+                    <p className="mt-1 text-[0.9rem]/[1.45] text-white/75">
+                      {item.text}
+                    </p>
+                  </div>
                 </div>
+                {isLast ? null : (
+                  <>
+                    <ScribbleArrow
+                      kind={item.mobileArrow}
+                      className="trust-connector trust-connector--mobile"
+                    />
+                    <ScribbleArrow
+                      kind={index === 1 ? "acrossHigh" : "across"}
+                      className="trust-connector trust-connector--desktop"
+                    />
+                  </>
+                )}
               </li>
             );
           })}
-        </ul>
+        </ol>
       </div>
     </section>
   );
