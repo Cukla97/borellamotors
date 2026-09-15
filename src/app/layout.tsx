@@ -7,7 +7,8 @@ import "./globals.css";
 const display = Barlow_Condensed({
   variable: "--font-display",
   subsets: ["latin"],
-  weight: ["600", "700"],
+  weight: ["600", "700", "800"],
+  style: ["normal", "italic"],
 });
 
 const body = Source_Sans_3({

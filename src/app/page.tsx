@@ -11,7 +11,7 @@ import { WhatsAppFloat } from "@/components/WhatsAppFloat";
 export default function HomePage() {
   return (
     <>
-      <Header />
+      <Header tone="light" />
       <main className="page-stack">
         <Hero />
         <ComeFunziona />
