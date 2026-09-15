@@ -178,7 +178,7 @@ export function Trust() {
                     </p>
                   </div>
                 </div>
-                {isLast ? null : (
+                {isLast || !("mobileArrow" in item) ? null : (
                   <>
                     <ScribbleArrow
                       kind={item.mobileArrow}
