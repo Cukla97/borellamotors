@@ -1,7 +1,7 @@
 import { Header } from "@/components/Header";
 import { Hero } from "@/components/Hero";
 import { ComeFunziona } from "@/components/ComeFunziona";
-import { InstagramFeed } from "@/components/InstagramFeed";
+import { AutoInVideo } from "@/components/AutoInVideo";
 import { FormValutazione } from "@/components/FormValutazione";
 import { Trust } from "@/components/Trust";
 import { FAQ } from "@/components/FAQ";
@@ -15,7 +15,7 @@ export default function HomePage() {
       <main className="page-stack">
         <Hero />
         <ComeFunziona />
-        <InstagramFeed />
+        <AutoInVideo />
         <FormValutazione />
         <Trust />
         <FAQ />
