@@ -1,13 +1,82 @@
+"use client";
+
+import { useLayoutEffect, useRef } from "react";
 import Image from "next/image";
+import gsap from "gsap";
 import { ChevronDown } from "lucide-react";
 import { WhatsAppIcon } from "@/components/WhatsAppIcon";
 import { WHATSAPP_LABEL, WHATSAPP_URL } from "@/lib/whatsapp";
 
+function offsetFromFocus(el: Element, focusX: number) {
+  const box = el.getBoundingClientRect();
+  return focusX - (box.left + box.width / 2);
+}
+
 export function Hero() {
+  const rootRef = useRef<HTMLElement>(null);
+  const wordmarkRef = useRef<HTMLHeadingElement>(null);
+  const personImgRef = useRef<HTMLImageElement>(null);
+  const carLeftRef = useRef<HTMLImageElement>(null);
+  const carRightRef = useRef<HTMLImageElement>(null);
+
+  useLayoutEffect(() => {
+    const root = rootRef.current;
+    const wordmark = wordmarkRef.current;
+    const person = personImgRef.current;
+    const carLeft = carLeftRef.current;
+    const carRight = carRightRef.current;
+    if (!root || !wordmark || !person || !carLeft || !carRight) return;
+
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      return;
+    }
+
+    const ctx = gsap.context(() => {
+      const personBox = person.getBoundingClientRect();
+      const focusX = personBox.left + personBox.width / 2;
+      const cars = [carLeft, carRight];
+
+      gsap.set(wordmark, { opacity: 0, y: 16, filter: "blur(8px)" });
+      gsap.set(person, { opacity: 0, y: 64 });
+      gsap.set(cars, {
+        autoAlpha: 0,
+        x: (index) => offsetFromFocus(cars[index], focusX),
+      });
+
+      const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
+
+      tl.to(wordmark, {
+        opacity: 1,
+        y: 0,
+        filter: "blur(0px)",
+        duration: 0.7,
+        ease: "power2.out",
+      })
+        .to(person, {
+          opacity: 1,
+          y: 0,
+          duration: 0.75,
+        })
+        .set(cars, { autoAlpha: 1 }, ">-0.2")
+        .to(
+          cars,
+          {
+            x: 0,
+            duration: 1.15,
+            ease: "power3.out",
+          },
+          "<",
+        );
+    }, root);
+
+    return () => ctx.revert();
+  }, []);
+
   return (
-    <section className="hero-collage">
+    <section ref={rootRef} className="hero-collage">
       <div className="hero-collage-stage">
         <Image
+          ref={carLeftRef}
           src="/hero-car-left.png"
           alt=""
           width={873}
@@ -18,6 +87,7 @@ export function Hero() {
           aria-hidden
         />
         <Image
+          ref={carRightRef}
           src="/hero-car-right.png"
           alt=""
           width={1100}
@@ -29,8 +99,11 @@ export function Hero() {
         />
 
         <div className="hero-person">
-          <h1 className="hero-wordmark">Vuoi vendere la tua auto?</h1>
+          <h1 ref={wordmarkRef} className="hero-wordmark">
+            Vuoi vendere la tua auto?
+          </h1>
           <Image
+            ref={personImgRef}
             src="/foto-niik.png"
             alt="Niccolò Borella, titolare di Borella Motors"
             width={1122}

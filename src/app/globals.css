@@ -487,49 +487,6 @@ p {
   width: 100%;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .hero-wordmark {
-    animation: hero-word-in 900ms cubic-bezier(0.22, 1, 0.36, 1) both;
-  }
-
-  .hero-car,
-  .hero-person {
-    animation: hero-collage-in 800ms cubic-bezier(0.22, 1, 0.36, 1) both;
-  }
-
-  .hero-car--left {
-    animation-delay: 90ms;
-  }
-
-  .hero-car--right {
-    animation-delay: 140ms;
-  }
-
-  .hero-person {
-    animation-delay: 40ms;
-  }
-}
-
-@keyframes hero-collage-in {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-@keyframes hero-word-in {
-  from {
-    opacity: 0;
-    filter: blur(8px);
-  }
-  to {
-    opacity: 1;
-    filter: blur(0);
-  }
-}
-
 @media (min-width: 640px) {
   .hero-collage-cta .btn-primary,
   .hero-collage-cta .btn-whatsapp {
