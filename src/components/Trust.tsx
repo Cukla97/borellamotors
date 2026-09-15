@@ -154,7 +154,6 @@ export function Trust() {
         <ol className="trust-flow" aria-label="Impegni di Niccolò">
           {commitments.map((item, index) => {
             const Icon = item.icon;
-            const isLast = index === commitments.length - 1;
 
             return (
               <li key={item.title} className="trust-step">
@@ -178,7 +177,7 @@ export function Trust() {
                     </p>
                   </div>
                 </div>
-                {isLast ? null : (
+                {"mobileArrow" in item ? (
                   <>
                     <ScribbleArrow
                       kind={item.mobileArrow}
@@ -189,7 +188,7 @@ export function Trust() {
                       className="trust-connector trust-connector--desktop"
                     />
                   </>
-                )}
+                ) : null}
               </li>
             );
           })}
